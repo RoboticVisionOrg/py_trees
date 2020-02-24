@@ -86,11 +86,7 @@ py_trees.console
 py_trees.decorators
 -------------------
 
-<<<<<<< HEAD
  .. automodule:: py_trees.decorators
-=======
-.. automodule:: py_trees.decorators
->>>>>>> naveed/climb-to-1.x
     :members:
     :special-members:
     :show-inheritance:

@@ -58,19 +58,11 @@ class Behaviour(object):
        * :ref:`The Action Behaviour Demo <py-trees-demo-action-behaviour-program>`
 
     """
-<<<<<<< HEAD
-    def __init__(self, name="", *args, **kwargs):
-        try:
-            assert isinstance(name, basestring), "a behaviour name should be a string, but you passed in %s" % type(name)  # python2 compatibility
-        except NameError:
-            assert isinstance(name, str), "a behaviour name should be a string, but you passed in %s" % type(name)
-=======
     def __init__(self, name=common.Name.AUTO_GENERATED, *args, **kwargs):
         if not name or name == common.Name.AUTO_GENERATED:
             name = self.__class__.__name__
         if not isinstance(name, basestring):
             raise TypeError("a behaviour name should be a string, but you passed in {}".format(type(name)))
->>>>>>> naveed/climb-to-1.x
         self.id = uuid.uuid4()  # used to uniquely identify this node (helps with removing children from a tree)
         self.name = name
         self.status = Status.INVALID

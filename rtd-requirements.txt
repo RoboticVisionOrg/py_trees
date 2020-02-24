@@ -11,11 +11,7 @@
 ##############################################################################
 
 # install_requires
-<<<<<<< HEAD
-enum34;python_version<"3.4"
-=======
 enum34
->>>>>>> naveed/climb-to-1.x
 pydot
 
 # extras_require[docs]
@@ -24,8 +20,4 @@ sphinx-argparse
 sphinx_rtd_theme
 
 # extras_require[test] || tests_require
-<<<<<<< HEAD
 nose
-=======
-nose
->>>>>>> naveed/climb-to-1.x

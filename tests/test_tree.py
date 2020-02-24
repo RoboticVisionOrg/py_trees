@@ -58,13 +58,8 @@ def test_selector_composite():
     assert(a.status == py_trees.common.Status.RUNNING)
     print("c.number_count_resets == 1")
     assert(c.number_count_resets == 1)
-<<<<<<< HEAD
-    print("c.status == py_trees.Status.INVALID")
-    assert(c.status == py_trees.Status.INVALID)
-=======
     print("c.status == py_trees.common.Status.INVALID")
     assert(c.status == py_trees.common.Status.INVALID)
->>>>>>> naveed/climb-to-1.x
     py_trees.tests.tick_tree(tree, 5, 8, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c])
     print("Done")
@@ -83,25 +78,6 @@ def test_sequence_composite():
     py_trees.tests.tick_tree(tree, 1, 5, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c])
     print("--------- Assertions ---------\n")
-<<<<<<< HEAD
-    print("a.status == py_trees.Status.SUCCESS")
-    assert(a.status == py_trees.Status.SUCCESS)
-    print("b.status == py_trees.Status.RUNNING")
-    assert(b.status == py_trees.Status.RUNNING)
-    print("tree.status == py_trees.Status.RUNNING")
-    assert(tree.status == py_trees.Status.RUNNING)
-    py_trees.tests.tick_tree(tree, 6, 10, visitor)
-    py_trees.tests.print_summary(nodes=[a, b, c])
-    print("--------- Assertions ---------\n")
-    print("a.status == py_trees.Status.SUCCESS")
-    assert(a.status == py_trees.Status.SUCCESS)
-    print("b.status == py_trees.Status.SUCCESS")
-    assert(b.status == py_trees.Status.SUCCESS)
-    print("b.status == py_trees.Status.SUCCESS")
-    assert(c.status == py_trees.Status.SUCCESS)
-    print("tree.status == py_trees.Status.SUCCESS")
-    assert(tree.status == py_trees.Status.SUCCESS)
-=======
     print("a.status == py_trees.common.Status.SUCCESS")
     assert(a.status == py_trees.common.Status.SUCCESS)
     print("b.status == py_trees.common.Status.RUNNING")
@@ -119,7 +95,6 @@ def test_sequence_composite():
     assert(c.status == py_trees.common.Status.SUCCESS)
     print("tree.status == py_trees.common.Status.SUCCESS")
     assert(tree.status == py_trees.common.Status.SUCCESS)
->>>>>>> naveed/climb-to-1.x
     py_trees.tests.tick_tree(tree, 11, 13, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c])
     print("--------- Assertions ---------\n")
@@ -157,16 +132,6 @@ def test_mixed_tree():
     py_trees.tests.tick_tree(root, 1, 2, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c, d])
     print("--------- Assertions ---------\n")
-<<<<<<< HEAD
-    print("a.status == py_trees.Status.FAILURE")
-    assert(a.status == py_trees.Status.FAILURE)
-    print("sequence.status == py_trees.Status.RUNNING")
-    assert(sequence.status == py_trees.Status.RUNNING)
-    print("b.status == py_trees.Status.RUNNING")
-    assert(b.status == py_trees.Status.RUNNING)
-    print("root.status == py_trees.Status.RUNNING")
-    assert(root.status == py_trees.Status.RUNNING)
-=======
     print("a.status == py_trees.common.Status.FAILURE")
     assert(a.status == py_trees.common.Status.FAILURE)
     print("sequence.status == py_trees.common.Status.RUNNING")
@@ -175,21 +140,10 @@ def test_mixed_tree():
     assert(b.status == py_trees.common.Status.RUNNING)
     print("root.status == py_trees.common.Status.RUNNING")
     assert(root.status == py_trees.common.Status.RUNNING)
->>>>>>> naveed/climb-to-1.x
 
     py_trees.tests.tick_tree(root, 3, 9, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c, d])
     print("--------- Assertions ---------\n")
-<<<<<<< HEAD
-    print("a.status == py_trees.Status.FAILURE")
-    assert(a.status == py_trees.Status.FAILURE)
-    print("sequence.status == py_trees.Status.RUNNING")
-    assert(sequence.status == py_trees.Status.RUNNING)
-    print("c.status == py_trees.Status.RUNNING")
-    assert(c.status == py_trees.Status.RUNNING)
-    print("root.status == py_trees.Status.RUNNING")
-    assert(root.status == py_trees.Status.RUNNING)
-=======
     print("a.status == py_trees.common.Status.FAILURE")
     assert(a.status == py_trees.common.Status.FAILURE)
     print("sequence.status == py_trees.common.Status.RUNNING")
@@ -198,21 +152,10 @@ def test_mixed_tree():
     assert(c.status == py_trees.common.Status.RUNNING)
     print("root.status == py_trees.common.Status.RUNNING")
     assert(root.status == py_trees.common.Status.RUNNING)
->>>>>>> naveed/climb-to-1.x
 
     py_trees.tests.tick_tree(root, 10, 11, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c, d])
     print("--------- Assertions ---------\n")
-<<<<<<< HEAD
-    print("a.status == py_trees.Status.FAILURE")
-    assert(a.status == py_trees.Status.FAILURE)
-    print("sequence.status == py_trees.Status.SUCCESS")
-    assert(sequence.status == py_trees.Status.SUCCESS)
-    print("c.status == py_trees.Status.SUCCESS")
-    assert(c.status == py_trees.Status.SUCCESS)
-    print("root.status == py_trees.Status.SUCCESS")
-    assert(root.status == py_trees.Status.SUCCESS)
-=======
     print("a.status == py_trees.common.Status.FAILURE")
     assert(a.status == py_trees.common.Status.FAILURE)
     print("sequence.status == py_trees.common.Status.SUCCESS")
@@ -221,7 +164,6 @@ def test_mixed_tree():
     assert(c.status == py_trees.common.Status.SUCCESS)
     print("root.status == py_trees.common.Status.SUCCESS")
     assert(root.status == py_trees.common.Status.SUCCESS)
->>>>>>> naveed/climb-to-1.x
 
     py_trees.tests.tick_tree(root, 12, 13, visitor)
     py_trees.tests.print_summary(nodes=[a, b, c, d])
@@ -367,21 +309,11 @@ def test_tick_tock_behaviour_tree():
 
 
 def test_success_failure_tree():
-<<<<<<< HEAD
-    print(console.bold + "\n****************************************************************************************" + console.reset)
-    print(console.bold + "* Success Failure Tree" + console.reset)
-    print(console.bold + "****************************************************************************************\n" + console.reset)
-    root = py_trees.Selector(name="Root")
-    failure = py_trees.behaviours.Failure(name="Failure")
-    failure2 = py_trees.meta.inverter(py_trees.behaviours.Success)(name="Failure2")
-    success = py_trees.behaviours.Success(name="Success")
-=======
     console.banner("Success Failure Tree")
     root = py_trees.Selector("Root")
     failure = py_trees.behaviours.Failure("Failure")
     failure2 = py_trees.meta.inverter(py_trees.behaviours.Success)("Failure2")
     success = py_trees.behaviours.Success("Success")
->>>>>>> naveed/climb-to-1.x
     root.add_child(failure)
     root.add_child(failure2)
     root.add_child(success)

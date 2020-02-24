@@ -31,13 +31,9 @@ class Foo(py_trees.behaviour.Behaviour):
 
         What to do here?
           Delayed one-time initialisation that would otherwise interfere
-<<<<<<< HEAD
-          with offline rendering of this behaviour in a tree to dot graph.
-=======
           with offline rendering of this behaviour in a tree to dot graph
           or validation of the behaviour's configuration.
 
->>>>>>> naveed/climb-to-1.x
           Good examples include:
           - Hardware or driver initialisation
           - Middleware initialisation (e.g. ROS pubs/subs/services)
