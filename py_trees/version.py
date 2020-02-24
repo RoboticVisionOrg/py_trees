@@ -1,6 +1,6 @@
 #
 # License: BSD
-#   https://raw.githubusercontent.com/stonier/py_trees/devel/LICENSE
+#   https://raw.githubusercontent.com/splintered-reality/py_trees/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -15,4 +15,8 @@ setup.py and sphinx.
 # Version
 ##############################################################################
 
+<<<<<<< HEAD
 __version__ = '0.6.8'
+=======
+__version__ = '0.5.12'
+>>>>>>> naveed/climb-to-1.x

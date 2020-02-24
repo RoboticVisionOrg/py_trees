@@ -1,6 +1,6 @@
 #
 # License: BSD
-#   https://raw.githubusercontent.com/stonier/py_trees/devel/LICENSE
+#   https://raw.githubusercontent.com/splintered-reality/py_trees/devel/LICENSE
 #
 
 ##############################################################################
@@ -159,6 +159,11 @@ def pretty_println(msg, colour=white):
 ##############################################################################
 # Console
 ##############################################################################
+
+def banner(msg):
+    print(green + "\n" + 80 * "*" + reset)
+    print(green + "* " + bold_white + msg.center(80) + reset)
+    print(green + 80 * "*" + "\n" + reset)
 
 
 def debug(msg):

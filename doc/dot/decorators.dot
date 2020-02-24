@@ -11,4 +11,8 @@ Timeout [fillcolor=ghostwhite, fontcolor=black, fontsize=11, shape=ellipse, styl
 Life -> Timeout;
 "Have a Beer!" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
 Timeout -> "Have a Beer!";
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> naveed/climb-to-1.x

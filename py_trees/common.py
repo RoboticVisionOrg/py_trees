@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: BSD
-#   https://raw.githubusercontent.com/stonier/py_trees/devel/LICENSE
+#   https://raw.githubusercontent.com/splintered-reality/py_trees/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -20,9 +20,6 @@ import enum
 ##############################################################################
 # Status
 ##############################################################################
-
-# """ An enumerator representing the status of a behaviour """
-# Status = Enum('Status', 'SUCCESS FAILURE RUNNING INVALID')
 
 
 class Status(enum.Enum):
@@ -52,7 +49,11 @@ class Name(enum.Enum):
     Naming conventions.
     """
     AUTO_GENERATED = "AUTO_GENERATED"
+<<<<<<< HEAD
     """More Foo"""	    """:py:data:`~py_trees.common.Name.AUTO_GENERATED` leaves it to the behaviour to generate a useful, informative name."""
+=======
+    """:py:data:`~py_trees.common.Name.AUTO_GENERATED` leaves it to the behaviour to generate a useful, informative name."""
+>>>>>>> naveed/climb-to-1.x
 
 
 class ClearingPolicy(enum.IntEnum):
@@ -129,4 +130,3 @@ def string_to_visibility_level(level):
         return VisibilityLevel.BIG_PICTURE
     else:
         return VisibilityLevel.ALL
-

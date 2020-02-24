@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: BSD
-#   https://raw.githubusercontent.com/stonier/py_trees/devel/LICENSE
+#   https://raw.githubusercontent.com/splintered-reality/py_trees/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -37,8 +37,8 @@ Perform the checks or actions you need to do in the non-composite behaviours.
 
 import itertools
 
+from . import behaviour
 from . import common
-from .behaviour import Behaviour
 from .common import Status
 
 ##############################################################################
@@ -46,7 +46,7 @@ from .common import Status
 ##############################################################################
 
 
-class Composite(Behaviour):
+class Composite(behaviour.Behaviour):
     """
     The parent class to all composite behaviours, i.e. those that
     have children.
@@ -57,7 +57,11 @@ class Composite(Behaviour):
         *args: variable length argument list
         **kwargs: arbitrary keyword arguments
     """
-    def __init__(self, name="", children=None, *args, **kwargs):
+    def __init__(self,
+                 name=common.Name.AUTO_GENERATED, 
+                 children=None,
+                 *args, **kwargs
+                 ):
         super(Composite, self).__init__(name, *args, **kwargs)
         if children is not None:
             for child in children:
@@ -70,7 +74,7 @@ class Composite(Behaviour):
     ############################################
     def setup(self, timeout):
         """
-        Relays to each child's :meth:`~py_trees.behaviour.Behaviuor.setup` method in turn.
+        Relays to each child's :meth:`~py_trees.behaviour.Behaviour.setup` method in turn.
 
         Args:
              timeout (:obj:`float`): time to wait (0.0 is blocking forever)
@@ -120,7 +124,10 @@ class Composite(Behaviour):
         Returns:
             :class::`~py_trees.behaviour.Behaviour`: the tip function of the current child of this composite or None
         """
-        return self.current_child.tip() if self.current_child is not None else None
+        if self.current_child is not None:
+            return self.current_child.tip()
+        else:
+            return super(Composite, self).tip()
 
     ############################################
     # Children
@@ -133,10 +140,14 @@ class Composite(Behaviour):
         Args:
             child (:class:`~py_trees.behaviour.Behaviour`): child to add
 
+        Raises:
+            TypeError: if the provided child is not an instance of :class:`~py_trees.behaviour.Behaviour`
+
         Returns:
             uuid.UUID: unique id of the child
         """
-        assert isinstance(child, Behaviour), "children must be behaviours, but you passed in %s" % type(child)
+        if not isinstance(child, behaviour.Behaviour):
+            raise TypeError("children must be behaviours, but you passed in {}".format(type(child)))
         self.children.append(child)
         child.parent = self
         return child.id
@@ -167,6 +178,7 @@ class Composite(Behaviour):
             child.stop(Status.INVALID)
         child_index = self.children.index(child)
         self.children.remove(child)
+        child.parent = None
         return child_index
 
     def remove_all_children(self):
@@ -176,6 +188,7 @@ class Composite(Behaviour):
         for child in self.children:
             if child.status == Status.RUNNING:
                 child.stop(Status.INVALID)
+            child.parent = None
         # makes sure to delete it for this class and all references to it
         #   http://stackoverflow.com/questions/850795/clearing-python-lists
         del self.children[:]
@@ -193,6 +206,8 @@ class Composite(Behaviour):
         child_index = self.children.index(child)
         self.logger.debug("%s.replace_child()[%s->%s]" % (self.__class__.__name__, child.name, replacement.name))
         self.children[child_index] = replacement
+        child.parent = None
+        replacement.parent = self
 
     def remove_child_by_id(self, child_id):
         """
@@ -209,6 +224,7 @@ class Composite(Behaviour):
             if child.status == Status.RUNNING:
                 child.stop(Status.INVALID)
             self.children.remove(child)
+            child.parent = None
         else:
             raise IndexError('child was not found with the specified id [%s]' % child_id)
 

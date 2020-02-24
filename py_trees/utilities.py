@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: BSD
-#   https://raw.githubusercontent.com/stonier/py_trees/devel/LICENSE
+#   https://raw.githubusercontent.com/splintered-reality/py_trees/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -57,7 +57,13 @@ def static_variables(**kwargs):
     """
     This is a decorator that can be used with python methods to attach 
     initialised static variables to the method.
+<<<<<<< HEAD
      .. code-block:: python
+=======
+
+    .. code-block:: python
+
+>>>>>>> naveed/climb-to-1.x
         @static_variables(counter=0)
         def foo():
             foo.counter += 1

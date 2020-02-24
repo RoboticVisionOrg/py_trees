@@ -58,7 +58,12 @@ deb:
 #
 # Note, you probably need to register the first time.
 # You can also send it to testpypi first if you wish (see tutorial).
+<<<<<<< HEAD
 pypi: 
+=======
+
+pypi:
+>>>>>>> naveed/climb-to-1.x
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 

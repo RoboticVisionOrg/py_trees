@@ -3,7 +3,7 @@
 # Script for setting up the development environment.
 #source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
-NAME=py_trees_0_5
+NAME=py_trees
 
 ##############################################################################
 # Colours
